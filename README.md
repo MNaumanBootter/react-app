@@ -1,3 +1,3 @@
-# game-hub
+# React App
 
-A portal for discovering video games.
+A practice project for learning React.
