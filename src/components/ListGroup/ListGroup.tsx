@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./ListGroup.css";
 import styled from "styled-components";
+import { FaCity } from "react-icons/fa";
+
 
 const List = styled.ul`
   list-style: none;
@@ -27,6 +29,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
 
   return (
     <List>
+      <FaCity />
       <h1>{heading}</h1>
       {items.length === 0 && <p>No items found</p>}
       <ul>
