@@ -6,22 +6,25 @@ import ListGroup from "./components/ListGroup/ListGroup";
 
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
-  const [drink, setDrink] = useState({
-    title: "Latte",
-    price: 5,
+  const [customer, setCustomer] = useState({
+    name: "John",
+    address: {
+      city: "Lahore",
+      zipCode: 54000
+    },
   })
   const items = ["Lahore", "Islamabad"];
   const handleSelectItem = (item: any) => {
-    setDrink({
-      ...drink,
-      price: 6,
+    setCustomer({
+      ...customer,
+      address: { ...customer.address, zipCode: 54001}
     });
     console.log(item);
   };
 
   return (
     <div>
-      {drink.price}
+      {customer.address.zipCode}
       <ListGroup
         items={items}
         heading="Cities"
