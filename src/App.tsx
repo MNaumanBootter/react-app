@@ -6,25 +6,22 @@ import ListGroup from "./components/ListGroup/ListGroup";
 
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
-  const [customer, setCustomer] = useState({
-    name: "John",
-    address: {
-      city: "Lahore",
-      zipCode: 54000
-    },
-  })
+  const [tags, setTags] = useState(['happy', 'cheerful'])
   const items = ["Lahore", "Islamabad"];
   const handleSelectItem = (item: any) => {
-    setCustomer({
-      ...customer,
-      address: { ...customer.address, zipCode: 54001}
-    });
-    console.log(item);
+    // Add
+    setTags([...tags, 'exciting']);
+    
+    // Remove
+    setTags(tags.filter(tag => tag != 'happy'));
+    
+    // Update
+    setTags(tags.map(tag => tag === 'happy'? 'happiness' : tag));
   };
 
   return (
     <div>
-      {customer.address.zipCode}
+      {tags}
       <ListGroup
         items={items}
         heading="Cities"
