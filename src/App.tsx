@@ -6,22 +6,19 @@ import ListGroup from "./components/ListGroup/ListGroup";
 
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
-  const [tags, setTags] = useState(['happy', 'cheerful'])
+  const [bugs, setBugs] = useState([
+    {id: 1, title: 'Bug 1', fixed: false},
+    {id: 2, title: 'Bug 2', fixed: false}
+  ])
   const items = ["Lahore", "Islamabad"];
   const handleSelectItem = (item: any) => {
-    // Add
-    setTags([...tags, 'exciting']);
-    
-    // Remove
-    setTags(tags.filter(tag => tag != 'happy'));
-    
     // Update
-    setTags(tags.map(tag => tag === 'happy'? 'happiness' : tag));
+    setBugs(bugs.map(bug => bug.id === 1? {...bug, fixed: true} : bug));
   };
 
   return (
     <div>
-      {tags}
+      {bugs[0].fixed ? 1 : 0}
       <ListGroup
         items={items}
         heading="Cities"
