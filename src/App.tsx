@@ -3,22 +3,32 @@ import Alert from "./components/Alert";
 import Button from "./components/Button/Button";
 import Like from "./components/Like";
 import ListGroup from "./components/ListGroup/ListGroup";
+import produce from "immer";
 
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
   const [bugs, setBugs] = useState([
-    {id: 1, title: 'Bug 1', fixed: false},
-    {id: 2, title: 'Bug 2', fixed: false}
-  ])
+    { id: 1, title: "Bug 1", fixed: false },
+    { id: 2, title: "Bug 2", fixed: false },
+  ]);
   const items = ["Lahore", "Islamabad"];
   const handleSelectItem = (item: any) => {
     // Update
-    setBugs(bugs.map(bug => bug.id === 1? {...bug, fixed: true} : bug));
+    setBugs(
+      produce((draft) => {
+        const bug = draft.find((bug) => bug.id === 1);
+        if (bug) bug.fixed = true;
+      })
+    );
   };
 
   return (
     <div>
-      {bugs[0].fixed ? 1 : 0}
+      {bugs.map((bug) => (
+        <p key={bug.id}>
+          {bug.title} {bug.fixed ? "Fixed" : "New"}
+        </p>
+      ))}
       <ListGroup
         items={items}
         heading="Cities"
@@ -30,7 +40,11 @@ function App() {
       <Button color="primary" onClick={() => setAlertVisibility(true)}>
         My Button
       </Button>
-      <Like onClick={() => {console.log("clicked!")}}></Like>
+      <Like
+        onClick={() => {
+          console.log("clicked!");
+        }}
+      ></Like>
     </div>
   );
 }
