@@ -1,0 +1,10 @@
+.expanded {
+
+}
+
+.shrink {
+    width: 10ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
