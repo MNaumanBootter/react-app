@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ExpandableText from "./components/ExpandableText/ExpandableText";
+import ExpandableText from "./components/ExpandableText";
 
 function App() {
   return (
