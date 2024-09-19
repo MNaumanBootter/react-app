@@ -1,12 +1,9 @@
 import { useState } from "react";
 import ExpandableText from "./components/ExpandableText";
+import Form from "./components/Form";
 
 function App() {
-  return (
-    <ExpandableText maxChars={10}>
-      aaaa assdf asdf asdf aqewr xzxcvb
-    </ExpandableText>
-  );
+  return <Form />;
 }
 
 export default App;
