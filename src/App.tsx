@@ -1,9 +1,7 @@
-import { useState } from "react";
-import ExpandableText from "./components/ExpandableText";
-import Form from "./components/Form";
+import ExpenseTracker from "./components/ExpenseTracker/ExpenseTracker";
 
 function App() {
-  return <Form />;
+  return <ExpenseTracker />;
 }
 
 export default App;
