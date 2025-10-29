@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
-import { CanceledError } from "./services/api-client";
 import userService, { User } from "./services/user-service";
 import useUsers from "./hooks/useUsers";
+import TodoList from "./components/Todolist";
 
 function App() {
   const { users, error, isLoading, setUsers, setError } = useUsers();
@@ -69,6 +68,7 @@ function App() {
           </li>
         ))}
       </ul>
+      <TodoList />
     </>
   );
 }
