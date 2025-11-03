@@ -6,7 +6,18 @@ import App from "./App";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 3,
+      cacheTime: 1000 * 60 * 5,
+      staleTime: 1000 * 60 * 5,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+    },
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
